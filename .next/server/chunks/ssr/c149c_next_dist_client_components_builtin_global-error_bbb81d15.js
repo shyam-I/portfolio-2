@@ -1,3 +1,0 @@
-module.exports=[70627,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(26446);a.n(d("[project]/new portfolio/node_modules/.pnpm/next@16.0.0_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},54344,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(26446);a.n(d("[project]/new portfolio/node_modules/.pnpm/next@16.0.0_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/client/components/builtin/global-error.js"))},50526,a=>{"use strict";a.i(70627);var b=a.i(54344);a.n(b)}];
-
-//# sourceMappingURL=c149c_next_dist_client_components_builtin_global-error_bbb81d15.js.map

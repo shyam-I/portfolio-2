@@ -1,1 +1,9 @@
 node_modules
+.next
+out
+.turbo
+.cache
+.env
+.env.local
+.vercel
+dist
