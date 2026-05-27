@@ -60,6 +60,20 @@ const projectsData = [
     tags: ["React", "Next.js", "TypeScript"],
     link: "https://github.com/shyam-I/Onyx_Technologies_website.git",
   },
+  {
+    id: 9,
+    title: "ZYLO_Technologies_website",
+    description: "A revolutionary web application built with React and Next.js",
+    tags: ["React", "Next.js", "TypeScript"],
+    link: "https://zylo-company-web.vercel.app",
+  },
+  {
+    id: 10,
+    title: "CUSTOMIZED BIRTHDAY WEBSITE",
+    description: "A revolutionary web application built with React and Next.js",
+    tags: ["React", "Next.js", "TypeScript"],
+    link: "https://heart-story-kappa.vercel.app/",
+  },
 ]
 
 export default function Projects() {
