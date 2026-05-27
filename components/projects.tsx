@@ -31,6 +31,35 @@ const projectsData = [
     tags: ["Python", "React",],
     link: "https://github.com/shyam-I/Demostrate-sql-firewall.git"
   },
+  {
+    id: 5,
+    title: "stock market prediction",
+    description: "A revolutionary web application built To predict stock market trends using machine learning",
+    tags: ["Python", "C++", "Cython"],
+    link: "https://github.com/shyam-I/stock-prediction",
+  },
+  {
+    id: 6,
+    title: "GEN-ORA",
+    description: "A revolutionary web application built to water Manage and optimize water resources using machine learning",
+    tags: ["React", "CSS", "TypeScript","Node.js,Python"],
+    link: "https://github.com/shyam-I/GEN-ORA.git",
+  },
+  {
+    id: 7,
+    title: "E-learning platform",
+    description: "A revolutionary web application built to provide interactive learning experiences",
+    tags: ["React", "CSS", "TypeScript", "Node.js"],
+    gitlink: "https://github.com/shyam-I/e-learning-.git",
+    link:"https://e-learning-vert-eight.vercel.app"
+  },
+  {
+    id: 8,
+    title: "Onyx_Technologies_website",
+    description: "A revolutionary web application built with React and Next.js",
+    tags: ["React", "Next.js", "TypeScript"],
+    link: "https://github.com/shyam-I/Onyx_Technologies_website.git",
+  },
 ]
 
 export default function Projects() {

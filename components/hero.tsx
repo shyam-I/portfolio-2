@@ -56,14 +56,13 @@ export default function Hero({ scrollY, prefersReducedMotion }: HeroProps) {
           <div className="relative w-32 h-32 md:w-40 md:h-40">
             {/* Glowing border */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 p-1 animate-pulse">
-              <div className="w-full h-full rounded-full bg-space-dark flex items-center justify-center overflow-hidden">
+              <div className="relative w-full h-full rounded-full bg-space-dark flex items-center justify-center overflow-hidden">
                 <Image
-  src="\shyam.jpeg"
-  alt="Shyam"
-  fill
-  className="object-cover rounded-full"
-/>
-
+                  src="/shyam.jpeg"
+                  alt="Shyam"
+                  fill
+                  className="object-cover rounded-full"
+                />
               </div>
             </div>
 
