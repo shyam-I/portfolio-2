@@ -16,11 +16,11 @@ export default function Starfield({ prefersReducedMotion }: StarfieldProps) {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
     }
+
     resizeCanvas()
     window.addEventListener("resize", resizeCanvas)
 
@@ -28,51 +28,51 @@ export default function Starfield({ prefersReducedMotion }: StarfieldProps) {
     const stars: Array<{
       x: number
       y: number
+      baseX: number
+      baseY: number
       radius: number
       opacity: number
-      vx: number
-      vy: number
+      offset: number
     }> = []
 
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 400; i++) {
+      const x = Math.random() * canvas.width
+      const y = Math.random() * canvas.height
+
       stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5,
+        x,
+        y,
+        baseX: x,
+        baseY: y,
+        radius: Math.random() * 1.5 + 0.5,
         opacity: Math.random() * 0.5 + 0.5,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
+        offset: Math.random() * Math.PI * 2,
       })
     }
 
     let animationId: number
 
     const animate = () => {
-      // Clear canvas with semi-transparent background for trail effect
-      ctx.fillStyle = "rgba(10, 15, 35, 0.1)"
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Draw and update stars
+      const time = Date.now() * 0.001
+
       stars.forEach((star) => {
         if (!prefersReducedMotion) {
-          star.x += star.vx
-          star.y += star.vy
-
-          // Wrap around edges
-          if (star.x < 0) star.x = canvas.width
-          if (star.x > canvas.width) star.x = 0
-          if (star.y < 0) star.y = canvas.height
-          if (star.y > canvas.height) star.y = 0
+          // Move only a tiny distance from original position
+          star.x = star.baseX + Math.sin(time + star.offset) * 2
+          star.y = star.baseY + Math.cos(time + star.offset) * 2
         }
 
-        // Draw star with glow
-        ctx.fillStyle = `rgba(200, 220, 255, ${star.opacity})`
+        // Draw star
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`
         ctx.beginPath()
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2)
         ctx.fill()
 
-        // Add glow effect
-        ctx.strokeStyle = `rgba(100, 150, 255, ${star.opacity * 0.3})`
+        // Soft glow
+        ctx.strokeStyle = `rgba(180, 220, 255, ${star.opacity * 0.3})`
         ctx.lineWidth = 0.5
         ctx.beginPath()
         ctx.arc(star.x, star.y, star.radius * 2, 0, Math.PI * 2)
@@ -94,7 +94,10 @@ export default function Starfield({ prefersReducedMotion }: StarfieldProps) {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 z-0"
-      style={{ background: "linear-gradient(135deg, #0a0f23 0%, #1a1f3a 50%, #0f1428 100%)" }}
+      style={{
+        background:
+          "linear-gradient(135deg, #0a0f23 0%, #1a1f3a 50%, #0f1428 100%)",
+      }}
     />
   )
 }
